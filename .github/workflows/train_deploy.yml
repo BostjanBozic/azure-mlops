@@ -3,10 +3,8 @@ name: aml-train-deploy-workflow
 
 on:
   push:
-    branches:
-      - master
-    # paths:
-    #   - 'code/*'
+    paths:
+      - 'code/*'
 
 jobs:
   train:
