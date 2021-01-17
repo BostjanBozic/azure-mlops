@@ -11,7 +11,7 @@ from inference_schema.parameter_types.numpy_parameter_type import NumpyParameter
 from inference_schema.parameter_types.standard_py_parameter_type import StandardPythonParameterType
 
 
-# The init() method is called once, when the web service starts up...
+# The init() method is called once, when the web service starts up.
 # Typically you would deserialize the model file, as shown here using joblib,
 # and store it in a global variable so your run() method can access it later.
 def init():
