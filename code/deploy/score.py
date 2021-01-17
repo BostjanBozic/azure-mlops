@@ -17,8 +17,7 @@ from inference_schema.parameter_types.standard_py_parameter_type import Standard
 def init():
     global model
     global inputs_dc, prediction_dc
-    # The AZUREML_MODEL_DIR environment variable indicates
-    # a directory containing the model file you registered.
+    # The AZUREML_MODEL_DIR environment variable indicates a directory containing the model file you registered.
     model_file_name = "model.pkl"
     model_path = os.path.join(os.environ.get("AZUREML_MODEL_DIR"), model_file_name)
     model = joblib.load(model_path)
