@@ -77,14 +77,18 @@ def main(args):
     # Load iris dataset
     X, y = datasets.load_iris(return_X_y=True)
 
-    iris = datasets.load_iris()
-    data1 = pd.DataFrame(data= np.c_[iris['data'], iris['target']], columns= iris['feature_names'] + ['target'])
     subscription_id = '79b8cc50-a956-42e5-ad02-df10c2f44e06'
     resource_group = 'bostjan-test'
     workspace_name = 'bostjan-test'
     workspace = Workspace(subscription_id, resource_group, workspace_name)
-    data1 = data1.register(workspace = workspace, name = "mlops-test-iris", description = "Iris categorization dataset", create_new_version = True)
-    
+    dataset = Dataset.get_by_name(workspace, name='mlops-test-iris')
+    print("This is dataset")
+    print (dataset)
+    print("This is dataframe")
+    print(dataset.to_pandas_dataframe())
+    dataset.register(workspace = workspace, name = "mlops-test-iris", description = "Iris categorization dataset", create_new_version = True)
+    dataset.register(workspace = workspace, name = "another-dataset", description = "Iris another dataset", create_new_version = True)
+
     #dividing X,y into train and test data
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=223)
     data = {'train': {'X': x_train, 'y': y_train},
