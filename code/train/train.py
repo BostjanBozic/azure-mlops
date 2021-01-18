@@ -11,7 +11,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split
 
-from azureml.core import Dataset, Run
+from azureml.core import Workspace, Dataset, Run
 run = Run.get_context()
 
 
@@ -126,5 +126,13 @@ def parse_args():
 
 
 if __name__ == '__main__':
+    subscription_id = '79b8cc50-a956-42e5-ad02-df10c2f44e06'
+    resource_group = 'bostjan-test'
+    workspace_name = 'bostjan-test'
+    workspace = Workspace(subscription_id, resource_group, workspace_name)
+    mlops-test-iris = mlops-test-iris.register(workspace = workspace, name = "mlops-test-iris",
+                                                name = "mlops-test-iris",
+                                                description = "Iris categorization dataset",
+                                                create_new_version = True)
     args = parse_args()
     main(args=args)
