@@ -83,7 +83,7 @@ def main(args):
     resource_group = 'bostjan-test'
     workspace_name = 'bostjan-test'
     workspace = Workspace(subscription_id, resource_group, workspace_name)
-    data1 = data1.register(workspace = workspace, name = "mlops-test-iris", name = "mlops-test-iris", description = "Iris categorization dataset", create_new_version = True)
+    data1 = data1.register(workspace = workspace, name = "mlops-test-iris", description = "Iris categorization dataset", create_new_version = True)
     
     #dividing X,y into train and test data
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=223)
