@@ -83,7 +83,7 @@ def main(args):
     workspace_name = 'bostjan-test'
     ws = Workspace(subscription_id, resource_group, workspace_name)
 
-    datastore = "mlops_test"
+    datastore = ws.get_default_datastore()
     datastore_path1 = [(datastore, "cosmosDb-data")]
     dataset1 = Dataset.File.from_files(path=datastore_path1)
     dataset1.register(workspace = ws, name = "cosmosDb-data", description = "Data imported from CosmosDB", create_new_version = True)
