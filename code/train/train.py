@@ -79,6 +79,7 @@ def main(args):
     X, y = datasets.load_iris(return_X_y=True)
 
     svc_pr_password = os.environ.get("AZUREML_PASSWORD")
+    print(svc_pr_password)
     svc_pr = ServicePrincipalAuthentication(tenant_id="c37bed4a-4edf-46fd-8d26-8c55fd129cf8", service_principal_id="ab32640e-903c-44d9-a292-7317a23adbac", service_principal_password=svc_pr_password)
     subscription_id = '79b8cc50-a956-42e5-ad02-df10c2f44e06'
     resource_group = 'bostjan-test'
