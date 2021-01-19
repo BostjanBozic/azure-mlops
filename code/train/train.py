@@ -77,8 +77,9 @@ def main(args):
     # Load iris dataset
     X, y = datasets.load_iris(return_X_y=True)
 
-    dataset = Dataset.get_by_name("bostjan-test", name='mlops-test-iris')
-    dataset.register(workspace = "bostjan-test", name = "mlops-test-iris", description = "Iris categorization dataset v2", create_new_version = True)
+    es = Workspace.from_config()
+    dataset = Dataset.get_by_name(ws, name='mlops-test-iris')
+    dataset.register(workspace = ws, name = "mlops-test-iris", description = "Iris categorization dataset v2", create_new_version = True)
 
     #dividing X,y into train and test data
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=223)
