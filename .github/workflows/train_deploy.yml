@@ -34,6 +34,7 @@ jobs:
     # Submit a training run to the Azure Machine Learning
     - name: Submit training run
       env:
+        NAME: Bostjan
         AZUREML_PASSWORD: ${{ secrets.AZUREML_PASSWORD }}
       id: aml_run
       uses: Azure/aml-run@v1
