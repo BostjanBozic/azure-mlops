@@ -78,10 +78,10 @@ def main(args):
     # Load iris dataset
     X, y = datasets.load_iris(return_X_y=True)
 
-    subscription_id = '79b8cc50-a956-42e5-ad02-df10c2f44e06'
+    sub_id = '79b8cc50-a956-42e5-ad02-df10c2f44e06'
     resource_group = 'bostjan-test'
     workspace_name = 'bostjan-test'
-    ws = Workspace(subscription_id, resource_group, workspace_name)
+    ws = Workspace(sub_id, resource_group, workspace_name)
     dataset = Dataset.get_by_name(ws, name='mlops-test-iris')
     dataset.register(workspace = ws, name = "mlops-test-iris", description = "Iris categorization dataset v3", create_new_version = True)
 
