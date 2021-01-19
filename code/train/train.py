@@ -86,6 +86,7 @@ def main(args):
     datastore = ws.get_default_datastore()
     datastore_path1 = [(datastore, "cosmosDb-data")]
     dataset1 = Dataset.File.from_files(path=datastore_path1)
+    print("This is fetched dataset: " + dataset1)
     dataset1.register(workspace = ws, name = "cosmosDb-data", description = "Data imported from CosmosDB", create_new_version = True)
     # dataset = Dataset.get_by_name(ws, name='mlops-test-iris')
     # dataset.register(workspace = ws, name = "mlops-test-iris", description = "Iris categorization dataset v3", create_new_version = True)
