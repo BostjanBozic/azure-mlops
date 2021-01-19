@@ -86,9 +86,7 @@ def main(args):
     datastore = ws.get_default_datastore()
     datastore_path1 = [(datastore, "cosmosDb-data")]
     dataset1 = Dataset.File.from_files(path=datastore_path1)
-    dataset1.register(workspace = ws, name = "cosmosDb-data", description = "Data imported from CosmosDB v2", create_new_version = True)
-    # dataset = Dataset.get_by_name(ws, name='mlops-test-iris')
-    # dataset.register(workspace = ws, name = "mlops-test-iris", description = "Iris categorization dataset v3", create_new_version = True)
+    dataset1.register(workspace = ws, name = "cosmosDb-data", description = "Data imported from CosmosDB v3", create_new_version = True)
 
     #dividing X,y into train and test data
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=223)
