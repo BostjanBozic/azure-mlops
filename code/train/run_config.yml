@@ -23,7 +23,7 @@ environment:
   version:
   # Environment variables set for the run.
   environmentVariables:
-    AZUREML_PASSWORD: "u6su7eHHu8sv1k_-E3.9g.Sdp0C5N6cY_n"
+    EXAMPLE_ENV_VAR: EXAMPLE_VALUE
   # Python details
   python:
     # user_managed_dependencies=True indicates that the environmentwill be user managed. False indicates that AzureML willmanage the user environment.
