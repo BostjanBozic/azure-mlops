@@ -85,9 +85,6 @@ def main(args):
     # ws = Workspace(subscription_id, resource_group, workspace_name)
 
     svc_pr_password = os.environ.get("AZUREML_PASSWORD")
-    name = os.environ.get("VAR1")
-    print("This is my name")
-    print(name)
     print("This is string")
     print(svc_pr_password)
 
