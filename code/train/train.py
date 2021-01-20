@@ -143,10 +143,9 @@ if __name__ == '__main__':
     #     workspace_name="bostjan-test",
     #     auth=svc_pr
     #     )
-    ws = Workspace.get(name="bostjan-test",
-                          subscription_id="79b8cc50-a956-42e5-ad02-df10c2f44e06",
-                          resource_group="bostjan-test"
-                      )
+    ws = Workspace.get(name="bostjan-test", subscription_id="79b8cc50-a956-42e5-ad02-df10c2f44e06", resource_group="bostjan-test")
+    print(ws)
+    
     datastore = ws.get_default_datastore()
     datastore_path1 = [(datastore, "cosmosDb-data")]
     dataset1 = Dataset.File.from_files(path=datastore_path1)
