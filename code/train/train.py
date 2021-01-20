@@ -86,7 +86,7 @@ def main(args):
 
     svc_pr_password = os.environ.get("AZUREML_PASSWORD")
     name = os.environ.get("MYNAME")
-    print("This is name")
+    print("This is my name")
     print(name)
     print("This is string")
     print(svc_pr_password)

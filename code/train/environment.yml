@@ -13,4 +13,3 @@ channels:
   - conda-forge
 variables:
   MYNAME: bostjan
-  AZUREML_PASSWORD: ${AZUREML_PASSWORD}
