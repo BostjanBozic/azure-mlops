@@ -12,6 +12,7 @@ from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_
 from sklearn.model_selection import train_test_split
 
 from azureml.core import Dataset, Run, Workspace
+from azureml.core.authentication import ServicePrincipalAuthentication
 
 run = Run.get_context()
 
@@ -78,10 +79,25 @@ def main(args):
     # Load iris dataset
     X, y = datasets.load_iris(return_X_y=True)
 
-    subscription_id = '79b8cc50-a956-42e5-ad02-df10c2f44e06'
-    resource_group = 'bostjan-test'
-    workspace_name = 'bostjan-test'
-    ws = Workspace(subscription_id, resource_group, workspace_name)
+    # subscription_id = '79b8cc50-a956-42e5-ad02-df10c2f44e06'
+    # resource_group = 'bostjan-test'
+    # workspace_name = 'bostjan-test'
+    # ws = Workspace(subscription_id, resource_group, workspace_name)
+
+    svc_pr_password = os.environ.get("AZUREML_PASSWORD")
+
+    svc_pr = ServicePrincipalAuthentication(
+        tenant_id="c37bed4a-4edf-46fd-8d26-8c55fd129cf8",
+        service_principal_id="ab32640e-903c-44d9-a292-7317a23adbac",
+        service_principal_password=svc_pr_password
+        )
+    ws = Workspace(
+        subscription_id="79b8cc50-a956-42e5-ad02-df10c2f44e06",
+        resource_group="bostjan-test",
+        workspace_name="bostjan-test",
+        auth=svc_pr
+        )
+    print("Found workspace {} at location {}".format(ws.name, ws.location))
 
     datastore = ws.get_default_datastore()
     datastore_path1 = [(datastore, "cosmosDb-data")]
