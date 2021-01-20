@@ -11,3 +11,6 @@ dependencies:
     - azureml-defaults==1.20.0
 channels:
   - conda-forge
+variables:
+  MYNAME: bostjan
+  AZUREML_PASSWORD: ${AZUREML_PASSWORD}

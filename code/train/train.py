@@ -85,6 +85,11 @@ def main(args):
     # ws = Workspace(subscription_id, resource_group, workspace_name)
 
     svc_pr_password = os.environ.get("AZUREML_PASSWORD")
+    name = os.environ.get("MYNAME")
+    print("This is name")
+    print(name)
+    print("This is string")
+    print(svc_pr_password)
 
     svc_pr = ServicePrincipalAuthentication(
         tenant_id="c37bed4a-4edf-46fd-8d26-8c55fd129cf8",
