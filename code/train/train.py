@@ -13,6 +13,7 @@ from sklearn.model_selection import train_test_split
 
 from azureml.core import Dataset, Run, Workspace
 from azureml.core.authentication import ServicePrincipalAuthentication
+from azureml.train.hyperdrive.parameter_expressions import choice
 
 run = Run.get_context()
 
@@ -85,7 +86,9 @@ def main(args):
             'test': {'X': x_test, 'y': y_test}}
     
     # train a SVM classifier
-    svm_model = SVC(kernel=args.kernel, C=args.penalty, gamma='scale').fit(data['train']['X'], data['train']['y'])
+    usage = choice('linear', 'rbf', 'poly', 'sigmoid')
+    print(usage)
+    svm_model = SVC(kernel=usage, C=args.penalty, gamma='scale').fit(data['train']['X'], data['train']['y'])
     svm_predictions = svm_model.predict(data['test']['X'])
 
     # accuracy for X_test
