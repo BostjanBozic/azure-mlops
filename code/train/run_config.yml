@@ -3,7 +3,7 @@ script: train.py
 # The arguments to the script file.
 arguments: [
   "--kernel", "choice('linear', 'rbf', 'poly', 'sigmoid')",
-  "--penalty", "choice(0.5, 1, 1.5)"
+  "--penalty", 1.0
 ]
 # The name of the compute target to use for this run.
 target: githubcluster
