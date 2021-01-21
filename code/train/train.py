@@ -130,7 +130,6 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
 
-    run = Run.get_context()
     svc_pr_password = run.get_secret(name="azureml-token")
     svc_pr = ServicePrincipalAuthentication(
         tenant_id="c37bed4a-4edf-46fd-8d26-8c55fd129cf8",
