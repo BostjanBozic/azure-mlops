@@ -2,7 +2,7 @@
 script: train.py
 # The arguments to the script file.
 arguments: [
-  "--kernel", "radial",
+  "--kernel", "sigmoid",
   "--penalty", 3.0
 ]
 # The name of the compute target to use for this run.
