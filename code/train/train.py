@@ -129,23 +129,4 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-
-    svc_pr_password = run.get_secret(name="azureml-token")
-    svc_pr = ServicePrincipalAuthentication(
-        tenant_id="c37bed4a-4edf-46fd-8d26-8c55fd129cf8",
-        service_principal_id="ab32640e-903c-44d9-a292-7317a23adbac",
-        service_principal_password=svc_pr_password
-        )
-    ws = Workspace(
-        subscription_id="79b8cc50-a956-42e5-ad02-df10c2f44e06",
-        resource_group="bostjan-test",
-        workspace_name="bostjan-test",
-        auth=svc_pr
-        )
-    
-    datastore = ws.get_default_datastore()
-    datastore_path1 = [(datastore, "cosmosDb-data")]
-    dataset1 = Dataset.File.from_files(path=datastore_path1)
-    dataset1.register(workspace = ws, name = "cosmosDb-data", description = "Data imported from CosmosDB v5", create_new_version = True)
-
     main(args=args)
